@@ -1,10 +1,16 @@
 package main
 
 import (
-	"github.com/CloudImpl-Inc/next-coder-sdk/polycode"
+	"github.com/cloudimpl/next-coder-sdk/polycode"
 	_ "portal/register/.polycode"
+	"portal/register/controllers"
+	"portal/register/lib"
 )
 
 func main() {
-	polycode.Start(8080)
+	v := lib.NewValidator()
+	polycode.SetValidator(v)
+
+	s := controllers.GetServer()
+	polycode.StartApp(s)
 }

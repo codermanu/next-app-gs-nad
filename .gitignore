@@ -39,3 +39,4 @@ config.json
 
 # Polycode related
 .polycode/*.go
+!.polycode/dummy.go
