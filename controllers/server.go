@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"github.com/cloudimpl/next-coder-sdk/api"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
@@ -12,6 +13,6 @@ func GetServer() *gin.Engine {
 	config.AllowHeaders = append(config.AllowHeaders, "x-polycode-partition-key")
 	r.Use(cors.New(config))
 
-	r.POST("/greeting", Greeting)
+	r.POST("/greeting", api.FromWorkflow(Greeting))
 	return r
 }
