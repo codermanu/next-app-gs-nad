@@ -1,11 +1,12 @@
 package controllers
 
 import (
+	"github.com/cloudimpl/next-coder-sdk/api"
 	"github.com/cloudimpl/next-coder-sdk/polycode"
 	"portal/register/model"
 )
 
-func Greeting(ctx polycode.WorkflowContext, input model.HelloRequest) (model.HelloResponse, error) {
+func greeting(ctx polycode.WorkflowContext, input model.HelloRequest) (model.HelloResponse, error) {
 	greetingService := ctx.Service("greeting-service").Get()
 
 	var output model.HelloResponse
@@ -16,3 +17,5 @@ func Greeting(ctx polycode.WorkflowContext, input model.HelloRequest) (model.Hel
 
 	return output, nil
 }
+
+var Greeting = api.FromWorkflow(greeting)
