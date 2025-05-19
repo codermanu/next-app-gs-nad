@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"portal/register/error_codes"
+	"portal/register/error_codes" // Import the error_codes package
 	"portal/register/model"
 
 	"github.com/cloudimpl/next-coder-sdk/polycode"
